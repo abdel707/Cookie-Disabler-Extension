@@ -52,9 +52,20 @@
     /**
      * 
      */
-    function unacceptCookie(){
-        if (getCookie('cookie_consent') !== 'accepted'){
-            document.querySelectorAll('input[type="checkbox"]').forEach(cb=>cb.checked = false);
+    function uncheckedConsentCheckbox(){
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox=>{
+            checkbox.checked = false;
+        });
+    }
+
+    function clickRejectButton(){
+        const rejectButton = Array.from(document.querySelectorAll('button, input[typr="button"]')).find(element =>
+        (element.textContent || '').toLocaleLowerCase().includes('reject')||
+        (element.textContent || '').toLocaleLowerCase().includes('refuser')||
+        (element.textContent || '').toLocaleLowerCase().includes('optionnels')
+        );
+        if(rejectButton){
+            rejectButton.click();
         }
     }
 
@@ -62,6 +73,7 @@
      * Unaccept cookies automatically
      */
     window.addEventListener('load', () => {
-        unacceptCookie();
-        rejectCookies();
+        uncheckedConsentCheckbox();
+        clickRejectButton();
+        clearAllCookies();
     });
