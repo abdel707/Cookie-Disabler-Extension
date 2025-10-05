@@ -59,10 +59,11 @@
     }
 
     function clickRejectButton(){
-        const rejectButton = Array.from(document.querySelectorAll('button, input[typr="button"]')).find(element =>
-        (element.textContent || '').toLocaleLowerCase().includes('reject')||
-        (element.textContent || '').toLocaleLowerCase().includes('refuser')||
-        (element.textContent || '').toLocaleLowerCase().includes('optionnels')
+        const rejectButton = Array.from(document.querySelectorAll('button, input[type="button"], a')).find(element =>
+        (element.textContent || '').toLowerCase().includes('reject')||
+        (element.textContent || '').toLowerCase().includes('refuser')||
+        (element.textContent || '').toLowerCase().includes('optionnels')||
+        (element.textContent || '').toLowerCase().includes('continuer sans accepter')
         );
         if(rejectButton){
             rejectButton.click();
