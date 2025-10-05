@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name" : "Extension Cookie Disabler",
+    "version" : "1.0",
+    "description": "To disable cookies because we are lazy :)",
+    "action" : {
+        "default_popup" : "index.html"
+    },
+    "icons":{
+        "32": "icon/cookie-32.png",
+        "50": "icon/cookie-50.png"
+    },
+    "permissions":[
+        "scripting",
+        "cookies",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ]
+
+
+    
+}
