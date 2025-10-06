@@ -59,12 +59,14 @@
     }
 
     function clickRejectButton(){
-        const rejectButton = Array.from(document.querySelectorAll('button, input[type="button"], a, aria-label')).find(element =>
+        const rejectButton = Array.from(document.querySelectorAll('button, input[type="button"], a, button[aria-label]')).find(element =>
         (element.textContent || '').toLowerCase().includes('reject')||
         (element.textContent || '').toLowerCase().includes('refuser')||
+        (element.textContent || '').toLowerCase().includes('decline')||
+        (element.textContent || '').toLowerCase().includes("do not consent")||
         (element.textContent || '').toLowerCase().includes('optionnels')||
-        (element.textContent || '').toLowerCase().includes('Continuer sans accepter')||
-        (element.textContent || '').toLowerCase().includes('Refuser les cookies optionnels')
+        (element.textContent || '').toLowerCase().includes("continuer sans accepter")||
+        (element.textContent || '').toLowerCase().includes("refuser les cookies optionnels")
         );
         if(rejectButton){
             rejectButton.click();
