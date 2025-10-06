@@ -7,8 +7,8 @@
         "default_popup" : "index.html"
     },
     "icons":{
-        "32": "icon/cookie-32.png",
-        "50": "icon/cookie-50.png"
+        "32": "images/cookie-32.png",
+        "50": "images/cookie-50.png"
     },
     "permissions":[
         "scripting",
@@ -22,7 +22,7 @@
     "content_scripts": [
         {
         "matches": ["<all_urls>"],
-        "js": ["Cookie_Disabler.js"],
+        "js": ["scripts/Cookie_Disabler.js"],
         "run_at": "document_idle"
         }
     ]
